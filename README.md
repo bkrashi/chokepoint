@@ -21,11 +21,11 @@ If **TTR > TTS** on a critical node, the chip is **CHOKED**.
 
 | Step | What the class does | What they learn |
 |---|---|---|
-| **1 Break it** | Play customs-form event cards to choke the chip with the **fewest** cards. A big red CHOKED stamp lands when it happens. | Where the single points of failure are. |
-| **2 Fix it** | Spend a **$10M** budget on fixes, then **replay** the same cards. | Some risks can be bought down. Taiwan can't, on $10M. |
+| **1 Break it** | Drag customs-form event cards from the **hand** at the bottom onto the supply chain (or click them) to choke the chip with the **fewest** cards. Hovering a card outlines the containers it would hit. Hit containers shake, their danger gauges fill, and a red CHOKED stamp lands when TTR beats TTS. | Where the single points of failure are. |
+| **2 Fix it** | Spend a **$10M** budget on fixes (hover one to see which containers it helps), then **replay** the same cards one by one. | Some risks can be bought down. Taiwan can't, on $10M. |
 | **3 Judge it** | Compare **Resilience** and **Ethics**. Read the "who pays" receipts. | Cheap resilience often moves the cost onto someone else. |
 
-**Controls:** keys `1` `2` `3` switch steps · `R` or the **Reset** button starts over · click any shipping container to see the real companies in that role (Sayari data).
+**Controls:** drag or click cards · click **Take back** in the customs log to undo a card · keys `1` `2` `3` switch steps · `R` or the **Reset** button starts over · click any shipping container to see the real companies in that role (Sayari data).
 
 ---
 

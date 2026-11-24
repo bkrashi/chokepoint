@@ -3,9 +3,13 @@
   'use strict';
   var M = window.Model;
   var game = null, sayari = {};
-  var state = load() || { step: 1, played: [], fixes: [], replayed: false, stampShown: false };
+  var state = load() || fresh();
+  var replayCount = null;          // transient: how many cards of the replay are shown (null = all)
+  var replayTimer = null;
+  var preview = null;              // { kind: 'card'|'fix', id }
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var $ = function (s) { return document.querySelector(s); };
+  var $$ = function (s) { return Array.prototype.slice.call(document.querySelectorAll(s)); };
 
   Promise.all([
     fetch('data/game.json').then(function (r) { return r.json(); }),
@@ -21,6 +25,7 @@
   });
 
   /* ---------- helpers ---------- */
+  function fresh() { return { step: 1, played: [], fixes: [], replayed: false }; }
   function el(tag, cls, html) {
     var e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -34,12 +39,14 @@
   }
   function fact(id) { return (game.facts || []).filter(function (f) { return f.id === id; })[0]; }
   function nodeLabel(id) { var n = M.find(game.nodes, id); return n ? n.label : id; }
+  function nodeEl(id) { return document.querySelector('.node[data-node="' + id + '"]'); }
   function save() { try { sessionStorage.setItem('chokepoint', JSON.stringify(state)); } catch (e) {} }
   function load() { try { return JSON.parse(sessionStorage.getItem('chokepoint')); } catch (e) { return null; } }
   function sourceLink(f) {
     if (!f || !f.source_url) return '';
     return '<a href="' + esc(f.source_url) + '" target="_blank" rel="noopener">' + esc(f.source_name || 'source') + '</a>';
   }
+  function plural(n, w) { return n + ' ' + w + (n === 1 ? '' : 's'); }
 
   /* ---------- init ---------- */
   function init() {
@@ -54,11 +61,9 @@
     buildFixes();
     buildSources();
 
-    document.querySelectorAll('.step').forEach(function (b) {
-      b.addEventListener('click', function () { go(+b.dataset.step); });
-    });
+    $$('.step').forEach(function (b) { b.addEventListener('click', function () { go(+b.dataset.step); }); });
     $('#reset').addEventListener('click', reset);
-    $('#replay').addEventListener('click', function () { state.replayed = true; save(); render(); flashReplay(); });
+    $('#replay').addEventListener('click', startReplay);
     $('#stampClose').addEventListener('click', hideStamp);
     $('#stampOverlay').addEventListener('click', function (e) { if (e.target.id === 'stampOverlay') hideStamp(); });
     document.addEventListener('keydown', function (e) {
@@ -69,15 +74,18 @@
       else if (e.key === 'Escape') hideStamp();
     });
     render();
+    window.addEventListener('resize', function () { if (state.step === 1) render(); });
   }
 
   function go(step) {
+    stopReplay();
     state.step = step; save(); render();
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   }
 
   function reset() {
-    state = { step: 1, played: [], fixes: [], replayed: false, stampShown: false };
+    stopReplay();
+    state = fresh(); preview = null;
     save(); hideStamp(); render();
   }
 
@@ -104,9 +112,10 @@
       li.dataset.node = n.id;
       var btn = el('button', 'node-btn');
       btn.setAttribute('aria-label', n.label + ', ' + n.place + '. Show companies');
-      btn.innerHTML = containerSVG(n, i) +
+      btn.innerHTML = '<span class="box-wrap">' + containerSVG(n, i) + '<span class="pv"></span></span>' +
         '<span class="node-label">' + esc(n.label) + '</span>' +
         '<span class="node-place">' + esc(n.place) + '</span>' +
+        '<span class="gauge" aria-hidden="true"><i></i></span>' +
         '<span class="node-nums"><span class="tts">TTS <b>' + n.tts_weeks + '</b>w</span><span class="ttr">TTR <b>0</b>w</span></span>' +
         '<span class="node-tag"></span>';
       btn.addEventListener('click', function () { openNode(n.id, btn); });
@@ -121,54 +130,180 @@
     });
   }
 
-  /* ---------- event cards ---------- */
+  /* ---------- the hand of event cards ---------- */
   function buildCards() {
-    var wrap = $('#cards');
+    var hand = $('#cards');
     game.cards.forEach(function (c) {
       var b = el('button', 'form');
       b.dataset.card = c.id;
       var hits = c.hits.map(function (h) {
-        return '<li><span>' + esc(nodeLabel(h.node)) + '</span><b>' + h.ttr_weeks + ' wk</b></li>';
+        return '<li><span>' + esc(nodeLabel(h.node)) + '</span><b>+' + h.ttr_weeks + 'w</b></li>';
       }).join('');
-      var f = fact((c.fact_ids || [])[0]);
       b.innerHTML =
-        '<span class="form-top"><span>Customs form</span><span>No. ' + esc(c.form_no) + '</span></span>' +
+        '<span class="form-top"><span>Customs form</span><span>' + esc(c.form_no) + '</span></span>' +
         '<span class="form-title">' + esc(c.title) + '</span>' +
         '<span class="form-blurb">' + esc(c.blurb) + '</span>' +
-        '<span class="form-field">Nodes hit · time to recover</span>' +
+        '<span class="form-field">Hits · time to recover</span>' +
         '<ul class="form-hits">' + hits + '</ul>' +
-        '<span class="form-barcode" aria-hidden="true">' + esc(c.form_no) + '</span>' +
-        '<span class="form-stamp" aria-hidden="true">Played</span>';
-      b.addEventListener('click', function () { toggleCard(c.id); });
-      var holder = el('div', 'form-wrap');
-      holder.appendChild(b);
-      if (f) {
-        holder.appendChild(el('p', 'form-src', 'Real-world precedent: ' + sourceLink(f) +
-          (f.published ? ' · ' + esc(f.published) : '') + ' · re-check ' + esc(f.recheck_by)));
-      }
-      wrap.appendChild(holder);
+        '<span class="form-barcode" aria-hidden="true">' + esc(c.form_no) + '</span>';
+      b.setAttribute('aria-label', 'Play card: ' + c.title);
+      b.addEventListener('mouseenter', function () { setPreview({ kind: 'card', id: c.id }); });
+      b.addEventListener('mouseleave', function () { setPreview(null); });
+      b.addEventListener('focus', function () { setPreview({ kind: 'card', id: c.id }); });
+      b.addEventListener('blur', function () { setPreview(null); });
+      enableDrag(b, c.id);
+      hand.appendChild(b);
     });
   }
 
-  function toggleCard(id) {
+  // Drag a card onto the chain (pointer events: mouse, pen and touch). A plain click also plays it.
+  function enableDrag(card, id) {
+    var start = null, ghost = null, dragging = false, suppressClick = false;
+
+    card.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) return;
+      start = { x: e.clientX, y: e.clientY };
+      dragging = false;
+    });
+    card.addEventListener('pointermove', function (e) {
+      if (!start) return;
+      var dx = e.clientX - start.x, dy = e.clientY - start.y;
+      if (!dragging && Math.abs(dx) + Math.abs(dy) > 8) {
+        dragging = true;
+        try { card.setPointerCapture(e.pointerId); } catch (err) {}
+        var r = card.getBoundingClientRect();
+        ghost = card.cloneNode(true);
+        ghost.className = 'form ghost';
+        ghost.style.width = r.width + 'px';
+        ghost.style.height = r.height + 'px';
+        ghost.style.left = r.left + 'px';
+        ghost.style.top = r.top + 'px';
+        ghost.dataset.ox = r.left; ghost.dataset.oy = r.top;
+        document.body.appendChild(ghost);
+        card.classList.add('lifted-away');
+        document.body.classList.add('dragging');
+        setPreview({ kind: 'card', id: id });
+      }
+      if (dragging) {
+        ghost.style.transform = 'translate(' + dx + 'px,' + dy + 'px) rotate(' + Math.max(-12, Math.min(12, dx / 25)) + 'deg)';
+        $('.world').classList.toggle('drop-hot', overChain(e.clientX, e.clientY));
+      }
+    });
+    function end(e) {
+      if (!start) return;
+      var wasDragging = dragging;
+      start = null; dragging = false;
+      document.body.classList.remove('dragging');
+      $('.world').classList.remove('drop-hot');
+      if (!wasDragging) return;
+      suppressClick = true;
+      setTimeout(function () { suppressClick = false; }, 0);
+      card.classList.remove('lifted-away');
+      var g = ghost; ghost = null;
+      if (e.type === 'pointerup' && overChain(e.clientX, e.clientY)) {
+        playCard(id, g);
+      } else {
+        // fly back to the hand
+        if (reduceMotion || !g.animate) { g.remove(); return; }
+        g.animate([{ transform: g.style.transform }, { transform: 'translate(0,0) rotate(0)' }],
+          { duration: 220, easing: 'ease-out' }).onfinish = function () { g.remove(); };
+        setPreview(null);
+      }
+    }
+    card.addEventListener('pointerup', end);
+    card.addEventListener('pointercancel', end);
+    card.addEventListener('click', function () {
+      if (suppressClick) return;
+      playCard(id, null);
+    });
+  }
+
+  function overChain(x, y) {
+    var r = $('.world').getBoundingClientRect();
+    var dock = $('#dock').getBoundingClientRect();
+    // Anywhere above the dock counts as "on the chain" on big screens.
+    return (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) || (dock.height && y < dock.top - 20);
+  }
+
+  function playCard(id, ghost) {
+    if (state.step !== 1 || state.played.indexOf(id) >= 0) { if (ghost) ghost.remove(); return; }
+    var card = M.find(game.cards, id);
+    var src = ghost || document.querySelector('.form[data-card="' + id + '"]');
+    var target = nodeEl(card.hits[0].node);
     var wasChoked = M.evaluate(game, state.played, []).isChoked;
+    setPreview(null);
+    fly(src, target, !!ghost, function () {
+      state.played.push(id);
+      save(); render();
+      card.hits.forEach(function (h, i) {
+        setTimeout(function () { impact(h.node, '+' + h.ttr_weeks + 'w', 'bad'); }, i * 120);
+      });
+      var nowChoked = M.evaluate(game, state.played, []).isChoked;
+      if (nowChoked && !wasChoked) setTimeout(showStamp, reduceMotion ? 0 : 650);
+    });
+  }
+
+  function unplayCard(id) {
     var i = state.played.indexOf(id);
-    if (i >= 0) state.played.splice(i, 1); else state.played.push(id);
+    if (i < 0) return;
+    state.played.splice(i, 1);
     state.replayed = false;
-    var nowChoked = M.evaluate(game, state.played, []).isChoked;
     save(); render();
-    if (nowChoked && !wasChoked) showStamp();
+  }
+
+  // Animate a card from its spot to a container, then call done().
+  function fly(fromEl, toEl, isGhost, done) {
+    if (reduceMotion || !fromEl || !toEl || !fromEl.animate) {
+      if (isGhost && fromEl) fromEl.remove();
+      done(); return;
+    }
+    var a = fromEl.getBoundingClientRect(), b = toEl.querySelector('.box').getBoundingClientRect();
+    var f = isGhost ? fromEl : fromEl.cloneNode(true);
+    if (!isGhost) {
+      f.className = 'form ghost';
+      f.style.width = a.width + 'px'; f.style.height = a.height + 'px';
+      f.style.left = a.left + 'px'; f.style.top = a.top + 'px';
+      document.body.appendChild(f);
+    }
+    var gx = parseFloat(f.style.left), gy = parseFloat(f.style.top);
+    var dx = b.left + b.width / 2 - (gx + a.width / 2);
+    var dy = b.top + b.height / 2 - (gy + a.height / 2);
+    var from = isGhost ? f.style.transform || 'none' : 'translate(0,0)';
+    f.animate([
+      { transform: from, opacity: 1 },
+      { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(-18deg) scale(.22)', opacity: .85 }
+    ], { duration: 420, easing: 'cubic-bezier(.5,0,.75,0)', fill: 'forwards' }).onfinish = function () {
+      f.remove(); done();
+    };
+  }
+
+  // Shake a container and float a label off it.
+  function impact(nodeId, text, kind) {
+    var li = nodeEl(nodeId);
+    if (!li) return;
+    li.classList.remove('impact', 'boost'); void li.offsetWidth;
+    li.classList.add(kind === 'good' ? 'boost' : 'impact');
+    setTimeout(function () { li.classList.remove('impact', 'boost'); }, 700);
+    if (reduceMotion) return;
+    var f = el('span', 'float ' + kind, esc(text));
+    li.appendChild(f);
+    setTimeout(function () { f.remove(); }, 1300);
   }
 
   /* ---------- fixes ---------- */
+  function effectText(e, short) {
+    if (e.tts_add) return '+' + e.tts_add + (short ? 'w' : ' wk survive');
+    if (e.ttr_cut) return '−' + e.ttr_cut + (short ? 'w' : ' wk recover');
+    return short ? 'out' : 'not critical any more';
+  }
+
   function buildFixes() {
     var wrap = $('#fixes');
     game.fixes.forEach(function (f) {
       var b = el('button', 'po');
       b.dataset.fix = f.id;
       var eff = f.effects.map(function (e) {
-        var what = e.tts_add ? '+' + e.tts_add + ' wk survive' : e.ttr_cut ? '−' + e.ttr_cut + ' wk recover' : 'not critical any more';
-        return '<li><span>' + esc(nodeLabel(e.node)) + '</span><b>' + what + '</b></li>';
+        return '<li><span>' + esc(nodeLabel(e.node)) + '</span><b>' + effectText(e) + '</b></li>';
       }).join('');
       var eth = f.ethics > 0 ? '+' + f.ethics : String(f.ethics);
       b.innerHTML =
@@ -178,20 +313,33 @@
         '<span class="po-eth ' + (f.ethics < 0 ? 'neg' : f.ethics > 0 ? 'pos' : '') + '">Ethics ' + eth + ': ' + esc(f.ethics_note) + '</span>' +
         '<span class="form-stamp ok" aria-hidden="true">Bought</span>';
       b.addEventListener('click', function () { toggleFix(f.id); });
+      b.addEventListener('mouseenter', function () { setPreview({ kind: 'fix', id: f.id }); });
+      b.addEventListener('mouseleave', function () { setPreview(null); });
+      b.addEventListener('focus', function () { setPreview({ kind: 'fix', id: f.id }); });
+      b.addEventListener('blur', function () { setPreview(null); });
       wrap.appendChild(b);
     });
   }
 
   function toggleFix(id) {
+    stopReplay();
+    var f = M.find(game.fixes, id);
     var i = state.fixes.indexOf(id);
     if (i >= 0) state.fixes.splice(i, 1);
     else {
-      var f = M.find(game.fixes, id);
-      if (M.spent(game, state.fixes) + f.cost_musd > game.meta.budget_musd) return;
+      if (M.spent(game, state.fixes) + f.cost_musd > game.meta.budget_musd) { refuse(id); return; }
       state.fixes.push(id);
     }
     state.replayed = false;
     save(); render();
+    if (i < 0) f.effects.forEach(function (e, k) {
+      setTimeout(function () { impact(e.node, effectText(e, true), 'good'); }, k * 120);
+    });
+  }
+
+  function refuse(id) {
+    var b = document.querySelector('.po[data-fix="' + id + '"]');
+    b.classList.remove('nope'); void b.offsetWidth; b.classList.add('nope');
   }
 
   function attackSet() {
@@ -199,20 +347,69 @@
     return M.par(game, []).cards;
   }
 
+  /* ---------- replay (step 2), one card at a time ---------- */
+  function startReplay() {
+    stopReplay();
+    state.replayed = true; save();
+    var set = attackSet();
+    if (reduceMotion) { replayCount = null; render(); flashVerdict(); return; }
+    replayCount = 0; render();
+    replayTimer = setInterval(function () {
+      replayCount++;
+      render();
+      var c = M.find(game.cards, set[replayCount - 1]);
+      if (c) c.hits.forEach(function (h, i) {
+        setTimeout(function () { impact(h.node, '+' + h.ttr_weeks + 'w', 'bad'); }, i * 100);
+      });
+      if (replayCount >= set.length) {
+        clearInterval(replayTimer); replayTimer = null;
+        setTimeout(function () { replayCount = null; render(); flashVerdict(); }, 650);
+      }
+    }, 750);
+  }
+  function stopReplay() {
+    if (replayTimer) clearInterval(replayTimer);
+    replayTimer = null; replayCount = null;
+  }
+
+  /* ---------- preview (hover a card or a fix) ---------- */
+  function setPreview(p) {
+    preview = p;
+    $$('.node').forEach(function (li) { li.classList.remove('preview', 'preview-good'); li.querySelector('.pv').textContent = ''; });
+    if (!p) return;
+    if (p.kind === 'card' && state.step === 1) {
+      var c = M.find(game.cards, p.id);
+      c.hits.forEach(function (h) {
+        var li = nodeEl(h.node);
+        li.classList.add('preview');
+        li.querySelector('.pv').textContent = '+' + h.ttr_weeks + 'w';
+      });
+    }
+    if (p.kind === 'fix' && state.step === 2) {
+      var f = M.find(game.fixes, p.id);
+      f.effects.forEach(function (e) {
+        var li = nodeEl(e.node);
+        li.classList.add('preview-good');
+        li.querySelector('.pv').textContent = effectText(e, true);
+      });
+    }
+  }
+
   /* ---------- render ---------- */
   function render() {
     if (!game) return;
     document.body.dataset.step = state.step;
-    document.querySelectorAll('.step').forEach(function (b) {
+    $$('.step').forEach(function (b) {
       var on = +b.dataset.step === state.step;
       b.classList.toggle('on', on);
       b.setAttribute('aria-current', on ? 'step' : 'false');
     });
-    document.querySelectorAll('[data-panel]').forEach(function (p) { p.hidden = +p.dataset.panel !== state.step; });
+    $$('[data-panel]').forEach(function (p) { p.hidden = +p.dataset.panel !== state.step; });
 
-    // Which world are we showing?
-    var cards = state.step === 1 ? state.played : (state.replayed ? attackSet() : []);
-    var fixes = state.step === 1 ? [] : state.fixes;
+    var cards, fixes = state.step === 1 ? [] : state.fixes;
+    if (state.step === 1) cards = state.played;
+    else if (state.step === 2 && state.replayed) cards = replayCount == null ? attackSet() : attackSet().slice(0, replayCount);
+    else cards = [];
     var r = M.evaluate(game, cards, fixes);
     renderChain(r, fixes);
 
@@ -224,20 +421,22 @@
   function renderChain(r, fixes) {
     var fixedNodes = {};
     fixes.forEach(function (fid) {
-      var f = M.find(game.fixes, fid);
-      f.effects.forEach(function (e) { fixedNodes[e.node] = true; });
+      M.find(game.fixes, fid).effects.forEach(function (e) { fixedNodes[e.node] = true; });
     });
     game.nodes.forEach(function (n) {
-      var li = document.querySelector('.node[data-node="' + n.id + '"]');
+      var li = nodeEl(n.id);
       var s = r.nodes[n.id];
+      var ratio = s.hit && s.tts ? s.ttr / s.tts : 0;
       li.classList.toggle('hit', s.hit && !s.choked);
+      li.classList.toggle('hot', s.hit && !s.choked && ratio >= 0.6);
       li.classList.toggle('choked', s.choked);
       li.classList.toggle('fixed', !!fixedNodes[n.id]);
       li.classList.toggle('noncrit', !s.critical);
+      li.querySelector('.gauge i').style.width = Math.min(100, Math.round(ratio * 100)) + '%';
       li.querySelector('.tts b').textContent = s.tts;
       li.querySelector('.ttr b').textContent = s.hit ? s.ttr : 0;
-      var tag = li.querySelector('.node-tag');
-      tag.textContent = s.choked ? 'Detained' : (!s.critical ? 'Redesigned out' : (s.hit ? 'Holding' : (fixedNodes[n.id] ? 'Fixed' : '')));
+      li.querySelector('.node-tag').textContent = s.choked ? 'Detained'
+        : (!s.critical ? 'Redesigned out' : (s.hit ? (s.tts - s.ttr) + 'w slack' : (fixedNodes[n.id] ? 'Fixed' : '')));
     });
   }
 
@@ -249,25 +448,58 @@
     if (r.isChoked) {
       cd.textContent = r.stopWeek;
       cd.classList.add('red');
-      foot.textContent = r.choked.map(function (n) { return n.label; }).join(' + ') + ' dark for ' + r.darkWeeks + ' more weeks after that.';
+      foot.textContent = r.choked.map(function (n) { return n.label; }).join(' + ') + ' dark ' + plural(r.darkWeeks, 'more week') + '.';
     } else {
       cd.classList.remove('red');
       cd.textContent = '∞';
       foot.textContent = state.played.length
-        ? 'Line holds. Closest call: ' + r.minSlack + ' week' + (r.minSlack === 1 ? '' : 's') + ' of slack.'
+        ? 'Holding. Closest call: ' + plural(r.minSlack, 'week') + ' of slack.'
         : 'Line running. Play a card.';
     }
-    document.querySelectorAll('.form').forEach(function (b) {
-      var on = state.played.indexOf(b.dataset.card) >= 0;
-      b.classList.toggle('played', on);
-      b.setAttribute('aria-pressed', on);
+    // Hand: fan the unplayed cards.
+    var left = game.cards.filter(function (c) { return state.played.indexOf(c.id) < 0; });
+    var n = left.length;
+    var hand = $('#cards');
+    if (hand.clientWidth) {
+      var gap = n > 1 ? Math.max(44, Math.min(150, (hand.clientWidth - 280) / (n - 1))) : 0;
+      hand.style.setProperty('--gap', gap + 'px');
+    }
+    $$('.hand .form').forEach(function (b) {
+      var k = -1;
+      left.forEach(function (c, j) { if (c.id === b.dataset.card) k = j; });
+      b.classList.toggle('gone', k < 0);
+      if (k >= 0) {
+        var d = k - (n - 1) / 2;
+        b.style.setProperty('--d', d);
+        b.style.setProperty('--ad', Math.abs(d));
+        b.style.zIndex = 10 + k;
+      }
+    });
+    // Customs log.
+    var log = $('#log');
+    log.innerHTML = '';
+    $('#logEmpty').hidden = state.played.length > 0;
+    state.played.forEach(function (cid, i) {
+      var c = M.find(game.cards, cid);
+      var f = fact((c.fact_ids || [])[0]);
+      var li = el('li', 'log-item',
+        '<span class="log-no">' + (i + 1) + '</span>' +
+        '<span class="log-main"><span class="log-form">' + esc(c.form_no) + '</span>' +
+        '<span class="log-title">' + esc(c.title) + '</span>' +
+        (f ? '<span class="log-src">Real-world precedent: ' + esc(f.text) + ' ' + sourceLink(f) + '</span>' : '') +
+        '</span>' +
+        '<span class="log-stamp">Filed</span>');
+      var undo = el('button', 'log-undo', 'Take back');
+      undo.addEventListener('click', function () { unplayCard(cid); });
+      li.appendChild(undo);
+      log.appendChild(li);
     });
   }
 
   function renderFix(r) {
     var left = game.meta.budget_musd - M.spent(game, state.fixes);
     $('#budget').textContent = '$' + left + 'M';
-    document.querySelectorAll('.po').forEach(function (b) {
+    $$('.po').forEach(function (b) {
       var f = M.find(game.fixes, b.dataset.fix);
       var on = state.fixes.indexOf(f.id) >= 0;
       b.classList.toggle('bought', on);
@@ -282,27 +514,31 @@
     if (!state.replayed) {
       res.textContent = '—'; res.className = 'stat-num';
       foot.textContent = state.played.length
-        ? 'Your attack: ' + set.length + ' card' + (set.length === 1 ? '' : 's') + '. Buy fixes, then press Replay.'
+        ? 'Your attack: ' + plural(set.length, 'card') + '. Buy fixes, then press Replay.'
         : 'No attack from step 1, so the replay uses the par attack.';
       return;
     }
-    res.textContent = r.isChoked ? 'Still choked' : 'Survived';
-    res.className = 'stat-num ' + (r.isChoked ? 'red' : 'blue');
-    foot.textContent = r.isChoked
-      ? 'Line stops in week ' + r.stopWeek + ': ' + r.choked.map(function (n) { return n.label; }).join(' + ') + '.'
-      : 'All ' + set.length + ' card' + (set.length === 1 ? '' : 's') + ' absorbed.';
-    // Card-by-card
-    set.forEach(function (cid) {
+    var shown = replayCount == null ? set : set.slice(0, replayCount);
+    if (replayCount != null) {
+      res.textContent = 'Replaying'; res.className = 'stat-num';
+      foot.textContent = 'Card ' + shown.length + ' of ' + set.length + '…';
+    } else {
+      res.textContent = r.isChoked ? 'Still choked' : 'Survived';
+      res.className = 'stat-num ' + (r.isChoked ? 'red' : 'blue');
+      foot.textContent = r.isChoked
+        ? 'Line stops in week ' + r.stopWeek + ': ' + r.choked.map(function (n) { return n.label; }).join(' + ') + '.'
+        : 'All ' + plural(set.length, 'card') + ' absorbed.';
+    }
+    shown.forEach(function (cid) {
       var c = M.find(game.cards, cid);
       var one = M.evaluate(game, [cid], state.fixes);
-      var row = el('div', 'replay-row ' + (one.isChoked ? 'bad' : 'good'),
+      list.appendChild(el('div', 'replay-row ' + (one.isChoked ? 'bad' : 'good'),
         '<span class="rr-form">' + esc(c.form_no) + '</span><span class="rr-title">' + esc(c.title) + '</span>' +
-        '<span class="rr-verdict">' + (one.isChoked ? 'Still chokes' : 'Absorbed') + '</span>');
-      list.appendChild(row);
+        '<span class="rr-verdict">' + (one.isChoked ? 'Still chokes' : 'Absorbed') + '</span>'));
     });
   }
 
-  function flashReplay() {
+  function flashVerdict() {
     if (reduceMotion) return;
     var res = $('#replayResult');
     res.classList.remove('slam'); void res.offsetWidth; res.classList.add('slam');
@@ -345,9 +581,10 @@
   /* ---------- stamp ---------- */
   function showStamp() {
     var r = M.evaluate(game, state.played, []);
+    if (!r.isChoked) return;
     $('#stampDetail').textContent = 'Line stops in week ' + r.stopWeek + '. ' +
       r.choked.map(function (n) { return n.label; }).join(' + ') + ' cannot recover in time. ' +
-      state.played.length + ' card' + (state.played.length === 1 ? '' : 's') + ' played.';
+      plural(state.played.length, 'card') + ' played.';
     var ov = $('#stampOverlay');
     ov.hidden = false;
     var s = $('#stamp');
@@ -378,7 +615,7 @@
     if (!d) {
       html += '<p class="mf-none">No Sayari data loaded for this node.</p>';
     } else {
-      if (d.sayari_status && d.sayari_status !== 'ok') html += '<p class="mf-none">' + esc(d.status_note || 'Sayari returned only partial results.') + '</p>';
+      if (d.status_note) html += '<p class="mf-none">' + esc(d.status_note) + '</p>';
       html += '<div class="cos">' + (d.companies || []).map(companyCard).join('') + '</div>';
       if (d.fallback) {
         html += '<div class="co fictional"><span class="co-name">' + esc(d.fallback.name) + '</span>' +
@@ -425,10 +662,10 @@
     if (!facts.length) { box.innerHTML = '<p>No facts loaded.</p>'; return; }
     var t = '<table class="src"><thead><tr><th>Topic</th><th>Fact</th><th>Source</th><th>Re-check by</th></tr></thead><tbody>';
     facts.forEach(function (f) {
-      t += '<tr><td>' + esc(f.topic) + '</td><td>' + esc(f.text) + (f.verified === false ? ' <b class="unv">(unverified)</b>' : '') +
-        '</td><td>' + sourceLink(f) + '</td><td>' + esc(f.recheck_by) + '</td></tr>';
+      t += '<tr><td>' + esc(f.topic) + '</td><td>' + esc(f.text) + '</td><td>' + sourceLink(f) + '</td><td>' + esc(f.recheck_by) + '</td></tr>';
     });
     box.innerHTML = t + '</tbody></table>' +
-      '<p class="method">Method: Time-to-Survive / Time-to-Recover after Simchi-Levi et al. TTS/TTR week numbers are illustrative.</p>';
+      '<p class="method">' + esc(game.meta.method || 'Method: Time-to-Survive / Time-to-Recover after Simchi-Levi et al.') +
+      ' TTS/TTR week numbers are illustrative.</p>';
   }
 })();
