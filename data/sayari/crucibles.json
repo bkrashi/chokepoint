@@ -1,0 +1,67 @@
+{
+ "node": "crucibles",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "partial",
+ "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+ "companies": [
+  {
+   "name": "JAPAN SUPER QUARTZ CORPORATION",
+   "country": "JP",
+   "sayari_entity_id": "0YWBgOdes8Fkey7w9sU6rA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  },
+  {
+   "name": "HERAEUS QUARZGLAS GMBH & CO KG",
+   "country": "DE",
+   "sayari_entity_id": "4dB5gPDW7OsGRG5jqioOvg",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [
+    {
+     "name": "YANGTZE OPTICAL FIBRE AND CABLE JOINT STOCK LIMITED COMPANY",
+     "country": "CN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "FUTONG GROUP (JIASHAN) COMMUNICATION TECHNOLOGY CO.",
+     "country": "CN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "ANGSTREM, JOINT STOCK COMPANY",
+     "country": null,
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "HERAEUS HOLDING GmbH (Wilhelm und Else Heraeus-Stiftung / Heraeus family)"
+  },
+  {
+   "name": "SHIN-ETSU QUARTZ PRODUCTS CO.LTD",
+   "country": "JP",
+   "sayari_entity_id": "kMvzhz-W2LqmlJSumDOT9A",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [
+    {
+     "name": "S.E.H. AMERICA, INC.",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "S E H SHAH ALAM SDN BHD",
+     "country": "MY",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "Heraeus Beteiligungsverwaltungsgesellschaft mbH"
+  }
+ ],
+ "fallback": null
+}

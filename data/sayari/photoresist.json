@@ -1,0 +1,99 @@
+{
+ "node": "photoresist",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "JSR Corporation",
+   "country": "JP",
+   "sayari_entity_id": "NjUa8KIiyHIQ7j3aA78I8w",
+   "match": "confirmed",
+   "state_owned": "unknown",
+   "flags": [],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  },
+  {
+   "name": "TOKYO OHKA KOGYO CO.,LTD.",
+   "country": "JP",
+   "sayari_entity_id": "QUdZkxssKCNXoJ06l4r6IQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Nouryon Pulp and Performance Chemicals AB",
+     "country": "SE",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Akzo Nobel Pulp and Performance Chemicals AB",
+     "country": "SE",
+     "direction": "buys_from"
+    },
+    {
+     "name": "OG Corporation India Private Limited",
+     "country": "IN",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "SHIN-ETSU CHEMICAL CO.,LTD",
+   "country": "JP",
+   "sayari_entity_id": "P-ddqvqiP9sm0ISKcc847A",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trade with a BIS Entity List company"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Simcoa Operations Pty Ltd",
+     "country": "AU",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Fitson Sdn Bhd",
+     "country": "MY",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Epivalence Ltd",
+     "country": "GB",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

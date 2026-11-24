@@ -1,0 +1,78 @@
+{
+ "node": "quartz",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "SIBELCO NORTH AMERICA, INC",
+   "country": "US",
+   "sayari_entity_id": "4jtXqnqee6dbwu1hl9tlEg",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour research (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "LONGI GREEN ENERGY TECHNOLOGY CO",
+     "country": "CN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "JINKO SOLAR COMPANY LIMITED",
+     "country": "CN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "GUANGDONG JINWAN GAOJING SOLAR ENERGY TECHNOLOGY CO.",
+     "country": "CN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "SCR-SIBELCO NV"
+  },
+  {
+   "name": "THE QUARTZ CORP AS",
+   "country": "NO",
+   "sayari_entity_id": "lP37UNb3gg24Md4O9sqsUw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [
+    {
+     "name": "MOMENTIVE TECHNOLOGIES YAMAGATA KK",
+     "country": "JP",
+     "direction": "sells_to"
+    },
+    {
+     "name": "CONG TY TNHH ATSC SOLARTECH (VIET NAM)",
+     "country": "VN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "APL LOGISTICS SHANGHAI LTD",
+     "country": "CN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "THE QUARTZ CORP SAS"
+  },
+  {
+   "name": "THE QUARTZ CORP USA",
+   "country": "US",
+   "sayari_entity_id": "NuZdYbLE-Z6e-qZvbjndxQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

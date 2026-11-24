@@ -1,0 +1,100 @@
+{
+ "node": "wafers",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "SHIN-ETSU HANDOTAI CO., LTD.",
+   "country": "JP",
+   "sayari_entity_id": "J0ARzNfT6-kAaDJ1Kzo9MA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "INFINEON TECHNOLOGIES KULIM MALAYSIA SDN BHD",
+     "country": "MY",
+     "direction": "sells_to"
+    },
+    {
+     "name": "ON SEMICONDUCTOR MALAYSIA SDN BHD",
+     "country": "MY",
+     "direction": "sells_to"
+    },
+    {
+     "name": "S.E.H. AMERICA, INC.",
+     "country": "US",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "SHIN-ETSU CHEMICAL CO., LTD"
+  },
+  {
+   "name": "SUMCO CORP",
+   "country": "JP",
+   "sayari_entity_id": "TYiesjKIDgKFev8sntdtCQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  },
+  {
+   "name": "GlobalWafers Co. Ltd.",
+   "country": "TW",
+   "sayari_entity_id": "Njlo7rB_caaX24Z6tvtQ8Q",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "WAFTECH SDN BHD",
+     "country": "MY",
+     "direction": "sells_to"
+    },
+    {
+     "name": "MEMC LLC",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "INFINEON TECHNOLOGIES",
+     "country": "DE",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

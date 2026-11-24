@@ -1,0 +1,74 @@
+{
+ "node": "neon",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "partial",
+ "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+ "companies": [
+  {
+   "name": "TOV INGAZ (ТОВ \"ІНГАЗ\")",
+   "country": "UA",
+   "sayari_entity_id": "rj7b4uL4Uwf3cNe-vtvr9g",
+   "match": "possible match",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Quzhou Hangyang Special Gas Co., Ltd. (衢州杭氧特种气体有限公司)",
+     "country": "CN",
+     "direction": "buys_from"
+    },
+    {
+     "name": "ORLEN S.A. Oddzial PGNiG w Odolanowie",
+     "country": "PL",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Vitkovice Cylinders a.s.",
+     "country": "CZ",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": "An individual (name withheld on public page)"
+  },
+  {
+   "name": "TOV KRIOIN ENGINEERING (KRIOIN ENGINEERING LLC)",
+   "country": "UA",
+   "sayari_entity_id": "iJgFFr56LQFcQc3Z-hNjuw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Export-controlled parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Siargo Chengdu Ltd",
+     "country": "CN",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Thermo Fisher Scientific GmbH",
+     "country": "DE",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Linyi Lizhen Chemical Technology Co., Ltd.",
+     "country": "CN",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": "An individual (name withheld on public page)"
+  }
+ ],
+ "fallback": null
+}

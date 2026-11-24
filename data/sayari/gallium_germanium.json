@@ -1,0 +1,110 @@
+{
+ "node": "gallium_germanium",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "partial",
+ "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+ "companies": [
+  {
+   "name": "Aluminum Corporation of China Ltd. (Chalco, 中国铝业股份有限公司)",
+   "country": "CN",
+   "sayari_entity_id": "PFpozu8P4bYow8fJYXK4Zw",
+   "match": "confirmed",
+   "state_owned": "y",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "soe",
+     "label": "Owned by a state-owned enterprise"
+    },
+    {
+     "tier": "flagged",
+     "type": "soe",
+     "label": "State-owned"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Xinjiang forced-labour risk (ownership)"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": "Aluminum Corporation of China (Chinalco group)"
+  },
+  {
+   "name": "云南临沧鑫圆锗业股份有限公司 (Yunnan Lincang Xinyuan Germanium Industry)",
+   "country": "CN",
+   "sayari_entity_id": "z4977ENn1z31ou25_oXrAA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "export_control",
+     "label": "Military end-use keywords (China)"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned trade counterparties"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "OOO GERMANIY I PRILOZHENIYA",
+     "country": "RU",
+     "direction": "sells_to"
+    },
+    {
+     "name": "OOO KRASPOTOK",
+     "country": "RU",
+     "direction": "sells_to"
+    },
+    {
+     "name": "AO GERMANIY",
+     "country": "RU",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "VITAL MATERIALS CO., LIMITED",
+   "country": "HK",
+   "sayari_entity_id": "rZVRaqT-jsyZ2kRV3C5N0Q",
+   "match": "possible match",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Công Ty TNHH Sản Xuất First Solar Việt Nam",
+     "country": "VN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

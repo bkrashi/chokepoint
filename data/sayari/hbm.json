@@ -1,0 +1,123 @@
+{
+ "node": "hbm",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "SK Hynix Inc",
+   "country": "KR",
+   "sayari_entity_id": "W4UWfQ7c-26FRFjfLafzpA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Adverse media"
+    },
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Politically exposed persons (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Intel Corporation",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "LG Electronics Vietnam Hai Phong Co., Ltd.",
+     "country": "VN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Intel Products Vietnam Co., Ltd.",
+     "country": "VN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "SAMSUNG ELECTRONICS CO., LTD",
+   "country": "KR",
+   "sayari_entity_id": "GG8YwuxZxcEm8MEU3csapw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Adverse media"
+    },
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Law-enforcement action"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Export-controlled parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Owns a sanctioned entity"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned trade counterparties"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

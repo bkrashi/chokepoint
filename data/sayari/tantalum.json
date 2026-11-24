@@ -1,0 +1,104 @@
+{
+ "node": "tantalum",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "partial",
+ "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+ "companies": [
+  {
+   "name": "SOCIETE MINIERE DE BISUNZU (SMB)",
+   "country": "CD",
+   "sayari_entity_id": "GPzwYDc1ik5IeqgQ-IT8Bw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [],
+   "top_counterparties": [],
+   "ultimate_owner": "An individual (name withheld on public page)"
+  },
+  {
+   "name": "宁夏东方钽业股份有限公司 (Ningxia Orient Tantalum Industry)",
+   "country": "CN",
+   "sayari_entity_id": "ZpTn4A-iShM17oe5UZ0pbA",
+   "match": "confirmed",
+   "state_owned": "y",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "soe",
+     "label": "Owned by a state-owned enterprise"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "US Military End-User list category"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "SAMSUNG ELECTRO-MECHANICS CO., LTD",
+     "country": "KR",
+     "direction": "sells_to"
+    },
+    {
+     "name": "KASEN INDONESIA",
+     "country": "ID",
+     "direction": "sells_to"
+    },
+    {
+     "name": "SAMSUNG ELECTRO-MECHANICS PHILIPPINES CORPORATION",
+     "country": "PH",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "KEMET ELECTRONICS CORPORATION",
+   "country": "US",
+   "sayari_entity_id": "9XUA0qytaym17F2PfP6L-Q",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Export-controlled parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Trades conflict-mineral goods"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "KEMET DE MEXICO SA DE CV",
+     "country": "MX",
+     "direction": "buys_from"
+    },
+    {
+     "name": "TOKIN ELECTRONICS (THAILAND) CO.,LT",
+     "country": "TH",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

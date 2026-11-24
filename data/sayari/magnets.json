@@ -1,0 +1,141 @@
+{
+ "node": "magnets",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "JL Mag Rare-Earth Co., Ltd. (江西金力永磁科技股份有限公司)",
+   "country": "CN",
+   "sayari_entity_id": "JYKre_L_k3pm2Kn-EdwYWA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "Owned by a state-owned enterprise"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Dana TM4 India Private Limited",
+     "country": "IN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Nidec India Private Limited",
+     "country": "IN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Cty TNHH Nidec Sankyo Viet Nam",
+     "country": "VN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "China Northern Rare Earth (Group) High-Tech Co., Ltd. (中国北方稀土(集团)高科技股份有限公司)",
+   "country": "CN",
+   "sayari_entity_id": "G3v20QkaoeFZS_rH6Dtwhg",
+   "match": "confirmed",
+   "state_owned": "y",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "soe",
+     "label": "Owned by a state-owned enterprise"
+    },
+    {
+     "tier": "flagged",
+     "type": "soe",
+     "label": "State-owned"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Xinjiang forced-labour risk (ownership)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "W.R. Grace & Co.-Conn",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Pacific Industrial Development Corp",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Ekin Maden Ticaret ve Sanayi A.S.",
+     "country": "TR",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "Lynas Rare Earths Ltd (Sayari label: Lynas CORP LTD)",
+   "country": "AU",
+   "sayari_entity_id": "_VakZUDye4u06kwWbJzxtw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Politically exposed persons (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Sojitz Corporation",
+     "country": "JP",
+     "direction": "sells_to"
+    },
+    {
+     "name": "Mt Weld Mining Pty Ltd (Lynas subsidiary)",
+     "country": "AU",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

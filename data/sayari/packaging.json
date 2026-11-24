@@ -1,0 +1,109 @@
+{
+ "node": "packaging",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "ADVANCED SEMICONDUCTOR ENGINEERING (ASE Inc.)",
+   "country": "TW",
+   "sayari_entity_id": "HTUWQXJ8vmwreOHTQ14Qlw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Export-controlled parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "ANALOG DEVICES GEN TRIAS INC",
+     "country": "PH",
+     "direction": "sells_to"
+    },
+    {
+     "name": "ADVANCED MICRO DEVICES INC",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "CARSEM (M) SDN BHD",
+     "country": "MY",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "SILICONWARE PRECISION INDUSTRIES CO. LTD (SPIL)",
+   "country": "TW",
+   "sayari_entity_id": "uBcAyPyuW5ja82mM2QjuoQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "QUALCOMM INDIA PRIVATE LIMITED",
+     "country": "IN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "TERADYNE PHILIPPINES LTD",
+     "country": "PH",
+     "direction": "sells_to"
+    },
+    {
+     "name": "JABIL CIRCUIT INDIA PRIVATE LIMITED",
+     "country": "IN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "Advanced Semiconductor Engineering, Inc."
+  }
+ ],
+ "fallback": null
+}

@@ -1,0 +1,94 @@
+{
+ "node": "fab",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "Taiwan Semiconductor Manufacturing Co., Ltd.",
+   "country": "TW",
+   "sayari_entity_id": "iWMVvPCrx1eaCp3h6lliHQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Adverse media"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Politically exposed persons (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Trades BIS high-priority item categories"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "NI Malaysia Sdn Bhd",
+     "country": "MY",
+     "direction": "buys_from"
+    },
+    {
+     "name": "FilmTec Corporation",
+     "country": "US",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Jabil Bukit Minyak (Plant 7)",
+     "country": "MY",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "TSMC ARIZONA CORPORATION",
+   "country": "US",
+   "sayari_entity_id": "MFdNfW5bDWsawLrmQ9bNwg",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "鴻久科技股份有限公司",
+     "country": "TW",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Wave Power Technology Inc.",
+     "country": "TW",
+     "direction": "buys_from"
+    },
+    {
+     "name": "佑勝科技有限公司",
+     "country": "TW",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": "Taiwan Semiconductor Manufacturing Co., Ltd."
+  }
+ ],
+ "fallback": null
+}

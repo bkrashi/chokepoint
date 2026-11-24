@@ -1,0 +1,115 @@
+{
+ "node": "datacenter",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "EQUINIX INC",
+   "country": "US",
+   "sayari_entity_id": "GHMJdqi1oBtullH505JdPA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Adverse media"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "Owned by a state-owned enterprise"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Hanley Energy Ltd",
+     "country": "IE",
+     "direction": "buys_from"
+    },
+    {
+     "name": "JH Hardware Sdn Bhd",
+     "country": "MY",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Sanmina-SCI Systems de Mexico SA de CV",
+     "country": "MX",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "DIGITAL REALTY TRUST, INC.",
+   "country": "US",
+   "sayari_entity_id": "mvcBzuiPTOPLX1zr3pdKXQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "soe",
+     "label": "State-owned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Global HTM Solutions LLC",
+     "country": "US",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Sanmina-SCI Systems de Mexico SA de CV",
+     "country": "MX",
+     "direction": "buys_from"
+    },
+    {
+     "name": "Flextronics Technology Penang Sdn Bhd",
+     "country": "MY",
+     "direction": "buys_from"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "Microsoft Corp",
+   "country": "US",
+   "sayari_entity_id": "D0hm_Sz6r4x7Qa3R0UUb3A",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

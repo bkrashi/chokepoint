@@ -1,0 +1,140 @@
+{
+ "node": "solar",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "partial",
+ "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+ "companies": [
+  {
+   "name": "HOSHINE SILICON INDUSTRY CO LTD (合盛硅业股份有限公司)",
+   "country": "CN",
+   "sayari_entity_id": "1XuabHffKPzSurnyE-YlvA",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Regulatory action"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "US CBP Withhold Release Order"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "US UFLPA Entity List"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Owns UFLPA Entity List companies"
+    },
+    {
+     "tier": "linked",
+     "type": "export_control",
+     "label": "Owns a BIS Entity List company"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned parties (network)"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "Zavod DK Orisil LLC",
+     "country": "UA",
+     "direction": "sells_to"
+    },
+    {
+     "name": "PT Graha Pertiwi Mandiri",
+     "country": "ID",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "An individual (name withheld on public page)"
+  },
+  {
+   "name": "新疆大全新能源股份有限公司 (Xinjiang Daqo New Energy Co., Ltd.)",
+   "country": "CN",
+   "sayari_entity_id": "3bccjaQWa6JzLqLg67FwUQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Law-enforcement action"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "Named in Sheffield Hallam forced-labour research"
+    },
+    {
+     "tier": "flagged",
+     "type": "export_control",
+     "label": "US BIS Entity List"
+    },
+    {
+     "tier": "flagged",
+     "type": "export_control",
+     "label": "US Military End-User list category"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "US UFLPA Entity List"
+    },
+    {
+     "tier": "linked",
+     "type": "sanctions",
+     "label": "Sanctioned trade counterparties"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "OOO Enkor Grupp (possible match; Sayari flags it as sanctioned)",
+     "country": "RU",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": null
+  },
+  {
+   "name": "新疆东方希望有色金属有限公司 (Xinjiang East Hope Nonferrous Metals Co., Ltd.)",
+   "country": "CN",
+   "sayari_entity_id": "gUa2RE7CCCwZrhMS_DmEqQ",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Law-enforcement action"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "Named in Sheffield Hallam forced-labour research"
+    },
+    {
+     "tier": "flagged",
+     "type": "export_control",
+     "label": "US BIS Entity List"
+    },
+    {
+     "tier": "flagged",
+     "type": "forced_labour",
+     "label": "US UFLPA Entity List"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  }
+ ],
+ "fallback": null
+}

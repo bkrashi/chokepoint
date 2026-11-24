@@ -1,0 +1,115 @@
+{
+ "node": "euv",
+ "source": "Sayari",
+ "retrieved_at": "2026-11-23",
+ "sayari_status": "ok",
+ "status_note": null,
+ "companies": [
+  {
+   "name": "ASML NETHERLANDS BV",
+   "country": "NL",
+   "sayari_entity_id": "1oM_NCDG5ZoGJzQj6HwWOw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Product on US DOL forced/child-labour goods list"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "JX ADVANCED METALS CORPORATION",
+     "country": "JP",
+     "direction": "sells_to"
+    },
+    {
+     "name": "PRODIGY TECHNOVATIONS PRIVATE LIMITED",
+     "country": "IN",
+     "direction": "sells_to"
+    },
+    {
+     "name": "S&M MOVING SYSTEMS",
+     "country": "US",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "ASML HOLDING NV"
+  },
+  {
+   "name": "ASML HOLDING NV",
+   "country": "NL",
+   "sayari_entity_id": "dzZRvq2wWyYwdVttU1H4Sg",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "flagged",
+     "type": "other",
+     "label": "Adverse media"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Politically exposed persons (network)"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    }
+   ],
+   "top_counterparties": [],
+   "ultimate_owner": null
+  },
+  {
+   "name": "Carl Zeiss SMT GmbH",
+   "country": "DE",
+   "sayari_entity_id": "UrJ2fpv3W8KlnylhrUXMcw",
+   "match": "confirmed",
+   "state_owned": "n",
+   "flags": [
+    {
+     "tier": "linked",
+     "type": "forced_labour",
+     "label": "Forced-labour risk in sub-tier suppliers"
+    },
+    {
+     "tier": "linked",
+     "type": "other",
+     "label": "Related company has a regulatory action"
+    }
+   ],
+   "top_counterparties": [
+    {
+     "name": "CARL ZEISS SBE LLC",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "M CUBED TECHNOLOGIES INC.",
+     "country": "US",
+     "direction": "sells_to"
+    },
+    {
+     "name": "CONG TY TNHH RORZE ROBOTECH",
+     "country": "VN",
+     "direction": "sells_to"
+    }
+   ],
+   "ultimate_owner": "CARL-ZEISS-STIFTUNG"
+  }
+ ],
+ "fallback": null
+}

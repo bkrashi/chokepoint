@@ -1,0 +1,946 @@
+{
+  "meta": {
+    "title": "Chokepoint",
+    "subtitle": "A reverse stress test of an AI chip",
+    "disclaimer": "Illustrative teaching model · TTS / TTR weeks are invented to teach the method, not forecasts · real-world facts are sourced and dated",
+    "budget_musd": 10,
+    "ethics_start": 60,
+    "rules": "A card stops a node for its TTR weeks. Two cards on the same node add up. If any critical node's TTR is longer than its TTS, the chip is CHOKED.",
+    "method": "Time-to-Survive / Time-to-Recover after Simchi-Levi et al. (HBR 2014; Interfaces 2015)."
+  },
+  "nodes": [
+    {
+      "id": "quartz",
+      "label": "High-purity quartz",
+      "place": "Spruce Pine, NC, USA",
+      "country": "US",
+      "tts_weeks": 12,
+      "critical": true,
+      "why": "Ultra-pure quartz sand is melted into crucibles.",
+      "fact_ids": [
+        "quartz_spruce_pine",
+        "quartz_no_substitute"
+      ]
+    },
+    {
+      "id": "crucibles",
+      "label": "Quartz crucibles",
+      "place": "Japan / Germany",
+      "country": "JP",
+      "tts_weeks": 8,
+      "critical": true,
+      "why": "Crucibles hold molten silicon while ingots are pulled. Consumed every run.",
+      "fact_ids": [
+        "crucibles_role",
+        "crucibles_consumable"
+      ]
+    },
+    {
+      "id": "wafers",
+      "label": "Silicon wafers",
+      "place": "Japan",
+      "country": "JP",
+      "tts_weeks": 10,
+      "critical": true,
+      "why": "Ingots are sliced and polished into 300 mm wafers.",
+      "fact_ids": [
+        "wafers_japan_share"
+      ]
+    },
+    {
+      "id": "euv",
+      "label": "EUV lithography",
+      "place": "Veldhoven, Netherlands",
+      "country": "NL",
+      "tts_weeks": 16,
+      "critical": true,
+      "why": "Only EUV scanners can print the smallest transistor layers.",
+      "fact_ids": [
+        "euv_asml_sole"
+      ]
+    },
+    {
+      "id": "neon",
+      "label": "Neon gas",
+      "place": "Odesa, Ukraine",
+      "country": "UA",
+      "tts_weeks": 20,
+      "critical": true,
+      "why": "Purified neon feeds the lasers in DUV lithography.",
+      "fact_ids": [
+        "neon_ukraine_share"
+      ]
+    },
+    {
+      "id": "photoresist",
+      "label": "Photoresist",
+      "place": "Japan",
+      "country": "JP",
+      "tts_weeks": 8,
+      "critical": true,
+      "why": "Light-sensitive chemical that holds the circuit pattern. Short shelf life.",
+      "fact_ids": [
+        "photoresist_japan"
+      ]
+    },
+    {
+      "id": "gallium_germanium",
+      "label": "Gallium & germanium",
+      "place": "China",
+      "country": "CN",
+      "tts_weeks": 24,
+      "critical": true,
+      "why": "Minor metals used in power chips, optics and fab process steps.",
+      "fact_ids": [
+        "gallium_china_share",
+        "germanium_china_lead"
+      ]
+    },
+    {
+      "id": "fab",
+      "label": "Advanced fab",
+      "place": "Hsinchu, Taiwan",
+      "country": "TW",
+      "tts_weeks": 4,
+      "critical": true,
+      "why": "Where the AI logic die is actually made.",
+      "fact_ids": [
+        "fab_tsmc_advanced"
+      ]
+    },
+    {
+      "id": "hbm",
+      "label": "HBM memory",
+      "place": "South Korea",
+      "country": "KR",
+      "tts_weeks": 6,
+      "critical": true,
+      "why": "Stacked high-bandwidth memory sits next to the AI die.",
+      "fact_ids": [
+        "hbm_korea_share"
+      ]
+    },
+    {
+      "id": "packaging",
+      "label": "Advanced packaging",
+      "place": "Taiwan",
+      "country": "TW",
+      "tts_weeks": 6,
+      "critical": true,
+      "why": "Die + HBM are bonded on one interposer (CoWoS-type).",
+      "fact_ids": [
+        "packaging_cowos"
+      ]
+    },
+    {
+      "id": "tantalum",
+      "label": "Tantalum capacitors",
+      "place": "DRC / Rwanda",
+      "country": "CD",
+      "tts_weeks": 14,
+      "critical": true,
+      "why": "Coltan becomes tantalum, used in tiny capacitors on the board.",
+      "fact_ids": [
+        "tantalum_producers",
+        "tantalum_3tg_us",
+        "tantalum_3tg_eu"
+      ]
+    },
+    {
+      "id": "magnets",
+      "label": "Rare-earth magnets",
+      "place": "China / Myanmar",
+      "country": "CN",
+      "tts_weeks": 12,
+      "critical": true,
+      "why": "Magnets for server fans, drives and cooling pumps.",
+      "fact_ids": [
+        "magnets_china_share",
+        "magnets_kachin"
+      ]
+    },
+    {
+      "id": "solar",
+      "label": "Solar power",
+      "place": "Xinjiang polysilicon",
+      "country": "CN",
+      "tts_weeks": 30,
+      "critical": true,
+      "why": "Panels that partly power the data center.",
+      "fact_ids": [
+        "solar_xinjiang_poly",
+        "solar_uflpa_presumption"
+      ]
+    },
+    {
+      "id": "datacenter",
+      "label": "AI data center",
+      "place": "USA",
+      "country": "US",
+      "tts_weeks": 8,
+      "critical": true,
+      "why": "Where the finished chip goes to work.",
+      "fact_ids": [
+        "datacenter_lbnl"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "id": "hurricane",
+      "form_no": "CF-0924",
+      "title": "Hurricane at Spruce Pine",
+      "blurb": "Floods cut roads, power and rail to the quartz mines.",
+      "hits": [
+        {
+          "node": "quartz",
+          "ttr_weeks": 8
+        },
+        {
+          "node": "crucibles",
+          "ttr_weeks": 4
+        }
+      ],
+      "fact_ids": [
+        "hurricane_helene_halt"
+      ]
+    },
+    {
+      "id": "gallium_ban",
+      "form_no": "CF-0803",
+      "title": "China revokes gallium licences",
+      "blurb": "Licences for gallium, germanium and rare earths are pulled again.",
+      "hits": [
+        {
+          "node": "gallium_germanium",
+          "ttr_weeks": 26
+        },
+        {
+          "node": "magnets",
+          "ttr_weeks": 14
+        }
+      ],
+      "fact_ids": [
+        "gallium_ban_timeline",
+        "gallium_ban_suspension"
+      ]
+    },
+    {
+      "id": "taiwan_blockade",
+      "form_no": "CF-2025",
+      "title": "Taiwan Strait blockade",
+      "blurb": "Ships and planes cannot reach Taiwan's ports.",
+      "hits": [
+        {
+          "node": "fab",
+          "ttr_weeks": 52
+        },
+        {
+          "node": "packaging",
+          "ttr_weeks": 52
+        }
+      ],
+      "fact_ids": [
+        "taiwan_justice_mission"
+      ]
+    },
+    {
+      "id": "uflpa",
+      "form_no": "CF-0621",
+      "title": "US forced-labour detention order",
+      "blurb": "Customs detains solar panels under the UFLPA.",
+      "hits": [
+        {
+          "node": "solar",
+          "ttr_weeks": 26
+        }
+      ],
+      "fact_ids": [
+        "uflpa_solar_detentions",
+        "uflpa_in_force"
+      ]
+    },
+    {
+      "id": "rubaya",
+      "form_no": "CF-0124",
+      "title": "Rubaya coltan mine collapse / M23",
+      "blurb": "A landslide at an armed-group-controlled coltan mine.",
+      "hits": [
+        {
+          "node": "tantalum",
+          "ttr_weeks": 10
+        }
+      ],
+      "fact_ids": [
+        "rubaya_collapse_jan2026",
+        "rubaya_m23_control",
+        "rubaya_collapse_mar2026"
+      ]
+    },
+    {
+      "id": "dutch_euv",
+      "form_no": "CF-0109",
+      "title": "Dutch export rule on lithography",
+      "blurb": "Licence rules tighten on ASML tools, slowing servicing and spare parts.",
+      "hits": [
+        {
+          "node": "euv",
+          "ttr_weeks": 10
+        }
+      ],
+      "fact_ids": [
+        "dutch_duv_2024",
+        "dutch_duv_2023"
+      ]
+    },
+    {
+      "id": "neon_shelled",
+      "form_no": "CF-0224",
+      "title": "Neon plant shelled",
+      "blurb": "A neon purification plant goes offline.",
+      "hits": [
+        {
+          "node": "neon",
+          "ttr_weeks": 16
+        }
+      ],
+      "fact_ids": [
+        "neon_shelled_halt"
+      ]
+    },
+    {
+      "id": "japan_quake",
+      "form_no": "CF-0316",
+      "title": "Japan earthquake",
+      "blurb": "Wafer and chemical plants halt for safety checks.",
+      "hits": [
+        {
+          "node": "wafers",
+          "ttr_weeks": 6
+        },
+        {
+          "node": "photoresist",
+          "ttr_weeks": 6
+        },
+        {
+          "node": "crucibles",
+          "ttr_weeks": 5
+        }
+      ],
+      "fact_ids": [
+        "japan_quake_renesas"
+      ]
+    },
+    {
+      "id": "drc_quota",
+      "form_no": "CF-0225",
+      "title": "DRC bans Kivu mineral trade",
+      "blurb": "Kinshasa blocks minerals, including coltan, from 38 artisanal mining sites.",
+      "hits": [
+        {
+          "node": "tantalum",
+          "ttr_weeks": 6
+        }
+      ],
+      "fact_ids": [
+        "drc_3t_site_ban"
+      ]
+    },
+    {
+      "id": "ransomware",
+      "form_no": "CF-0213",
+      "title": "Ransomware on a wafer maker",
+      "blurb": "Factory systems are encrypted and production stops. (Hypothetical, based on a real 2023 attack on a chip-equipment supplier.)",
+      "hits": [
+        {
+          "node": "wafers",
+          "ttr_weeks": 6
+        },
+        {
+          "node": "photoresist",
+          "ttr_weeks": 3
+        }
+      ],
+      "fact_ids": [
+        "ransomware_mks"
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "id": "crucible_stock",
+      "label": "Stockpile 3 months of crucibles",
+      "cost_musd": 1,
+      "effects": [
+        {
+          "node": "crucibles",
+          "tts_add": 12
+        }
+      ],
+      "ethics": 0,
+      "ethics_note": "Neutral. Warehouse cost only.",
+      "who_pays": "Your shareholders (cash tied up in inventory)."
+    },
+    {
+      "id": "second_wafer",
+      "label": "Qualify a second wafer supplier",
+      "cost_musd": 2,
+      "effects": [
+        {
+          "node": "wafers",
+          "ttr_cut": 6
+        },
+        {
+          "node": "photoresist",
+          "ttr_cut": 4
+        }
+      ],
+      "ethics": 0,
+      "ethics_note": "Neutral. Spreads orders across more plants.",
+      "who_pays": "Engineers (months of re-qualification)."
+    },
+    {
+      "id": "neon_recycle",
+      "label": "Neon recycling at the fab",
+      "cost_musd": 1,
+      "effects": [
+        {
+          "node": "neon",
+          "ttr_cut": 12
+        }
+      ],
+      "ethics": 5,
+      "ethics_note": "Uses less gas and depends less on a war zone.",
+      "who_pays": "Nobody much. Capital cost up front."
+    },
+    {
+      "id": "gallium_recycle",
+      "label": "Recover gallium from scrap",
+      "cost_musd": 3,
+      "effects": [
+        {
+          "node": "gallium_germanium",
+          "ttr_cut": 10
+        }
+      ],
+      "ethics": 5,
+      "ethics_note": "Circular supply, less new mining.",
+      "who_pays": "Higher unit cost for buyers."
+    },
+    {
+      "id": "myanmar_stock",
+      "label": "Stockpile cheap rare earths (Myanmar-linked)",
+      "cost_musd": 1,
+      "effects": [
+        {
+          "node": "magnets",
+          "tts_add": 26
+        }
+      ],
+      "ethics": -30,
+      "ethics_note": "Cheapest feedstock is linked to militia-run mines in Kachin State, Myanmar.",
+      "who_pays": "Kachin communities: polluted water, landslides, armed control."
+    },
+    {
+      "id": "lynas_magnets",
+      "label": "Second magnet supplier outside China",
+      "cost_musd": 4,
+      "effects": [
+        {
+          "node": "magnets",
+          "ttr_cut": 10
+        }
+      ],
+      "ethics": 5,
+      "ethics_note": "Traceable non-China supply, at a premium.",
+      "who_pays": "You: about 4x the cost of the Myanmar stockpile."
+    },
+    {
+      "id": "coltan_any",
+      "label": "Buy coltan from any source, no questions",
+      "cost_musd": 1,
+      "effects": [
+        {
+          "node": "tantalum",
+          "tts_add": 20
+        }
+      ],
+      "ethics": -25,
+      "ethics_note": "Untraced coltan from eastern DRC can finance armed groups.",
+      "who_pays": "Congolese miners and communities under armed-group control."
+    },
+    {
+      "id": "coltan_audit",
+      "label": "Conflict-minerals audit (certified smelters)",
+      "cost_musd": 2,
+      "effects": [
+        {
+          "node": "tantalum",
+          "ttr_cut": 3
+        }
+      ],
+      "ethics": 20,
+      "ethics_note": "Traceable supply. Small resilience gain.",
+      "who_pays": "You: audits and a slower, smaller supplier pool."
+    },
+    {
+      "id": "mlcc_redesign",
+      "label": "Redesign: replace tantalum capacitors",
+      "cost_musd": 3,
+      "effects": [
+        {
+          "node": "tantalum",
+          "make_noncritical": true
+        }
+      ],
+      "ethics": 10,
+      "ethics_note": "Removes the dependency altogether.",
+      "who_pays": "Engineers, plus a 6-month board redesign delay."
+    },
+    {
+      "id": "traced_solar",
+      "label": "Traced, non-Xinjiang solar panels",
+      "cost_musd": 2,
+      "effects": [
+        {
+          "node": "solar",
+          "ttr_cut": 20
+        }
+      ],
+      "ethics": 15,
+      "ethics_note": "Avoids forced-labour risk and customs detentions.",
+      "who_pays": "You: pricier panels."
+    },
+    {
+      "id": "chip_hoard",
+      "label": "Pre-buy 6 months of AI chips",
+      "cost_musd": 6,
+      "effects": [
+        {
+          "node": "fab",
+          "tts_add": 26
+        },
+        {
+          "node": "packaging",
+          "tts_add": 26
+        }
+      ],
+      "ethics": -10,
+      "ethics_note": "Hoarding starves smaller buyers such as universities, start-ups and hospitals.",
+      "who_pays": "Smaller buyers priced out of scarce chips."
+    },
+    {
+      "id": "second_fab",
+      "label": "Build a leading-edge fab outside Taiwan",
+      "cost_musd": 40,
+      "effects": [
+        {
+          "node": "fab",
+          "ttr_cut": 40
+        }
+      ],
+      "ethics": 0,
+      "ethics_note": "The real fix for Taiwan risk, and far beyond a $10M budget.",
+      "who_pays": "Taxpayers (subsidies) and years of waiting."
+    }
+  ],
+  "scripts": {
+    "break": [
+      "Say: 'Normal stress tests ask what if. We start from the failure: no AI chip ships. Your job is to break the chain with the FEWEST cards.'",
+      "Let the class call out cards. Point at the countdown: each node has weeks of inventory (TTS). If recovery (TTR) takes longer, the chip is choked.",
+      "After the CHOKED stamp, ask: 'Was that the smallest set? Could one card do it?' Reveal par, then press 2."
+    ],
+    "fix": [
+      "Say: 'You have $10M. Buy fixes. Some are cheap. Watch the ethics column.'",
+      "Let the class pick fixes, then press REPLAY to rerun the same cards. Green = survived, red = still choked.",
+      "Point out that no affordable fix stops the Taiwan card. Some chokepoints can't be bought away. Press 3."
+    ],
+    "judge": [
+      "Read the two meters out loud: Resilience (share of 1- and 2-card attacks the chain now survives) vs Ethics.",
+      "Click through the 'who pays' lines. Ask who in the room would sign off on the Myanmar stockpile.",
+      "End on the question: 'Who pays for your resilience?' Let it sit for 10 seconds."
+    ]
+  },
+  "facts": [
+    {
+      "id": "quartz_spruce_pine",
+      "topic": "quartz",
+      "text": "USGS: two companies near Spruce Pine, NC produce US high-purity quartz; the US is estimated world leader in HPQ production.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Quartz (High-Purity)",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-quartz.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "quartz_no_substitute",
+      "topic": "quartz",
+      "text": "USGS: no economic substitutes exist for high-purity quartz in most applications; Spruce Pine HPQ exceeds 99.999% purity.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Quartz (High-Purity)",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-quartz.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "crucibles_role",
+      "topic": "crucibles",
+      "text": "High-purity quartz is made into fused quartz crucibles used to grow silicon ingots that are sliced into semiconductor and solar wafers.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Quartz (High-Purity)",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-quartz.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "crucibles_consumable",
+      "topic": "crucibles",
+      "text": "Quartz crucibles used in Czochralski silicon pulling erode and deform at over 1,400°C, limiting their life; they are a consumable.",
+      "source_name": "SUMCO patent US11162186B2 (Google Patents)",
+      "source_url": "https://patents.google.com/patent/US11162186B2/en",
+      "published": null,
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "wafers_japan_share",
+      "topic": "wafers",
+      "text": "Japan's Shin-Etsu Chemical and SUMCO together account for roughly half of the global silicon wafer market.",
+      "source_name": "DigiTimes",
+      "source_url": "https://www.digitimes.com/news/a20240813PD215.html",
+      "published": "2024-08-14",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "euv_asml_sole",
+      "topic": "euv",
+      "text": "ASML (Netherlands) is the only maker of extreme ultraviolet (EUV) lithography equipment used for the most advanced AI chips.",
+      "source_name": "Reuters (via The Star), Max A. Cherney",
+      "source_url": "https://www.thestar.com.my/tech/tech-news/2026/03/02/exclusive-asml-plots-future-of-chipmaking-tools-for-ai-beyond-euv",
+      "published": "2026-03-02",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "neon_ukraine_share",
+      "topic": "neon",
+      "text": "Ukraine's Ingas (Mariupol) and Cryoin (Odesa) supplied an estimated 45–54% of the world's semiconductor-grade neon before 2022.",
+      "source_name": "Reuters (Alexandra Alper), republished by Euronews",
+      "source_url": "https://www.euronews.com/next/2022/03/11/ukraine-crisis-neon",
+      "published": "2022-03-11",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "photoresist_japan",
+      "topic": "photoresist",
+      "text": "Japanese firms such as JSR and Tokyo Ohka Kogyo hold about 90% of the global photoresist market, per the US trade agency.",
+      "source_name": "US International Trade Administration – Japan Country Commercial Guide: Semiconductors",
+      "source_url": "https://trade.gov/country-commercial-guides/japan-semiconductors",
+      "published": null,
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "fab_tsmc_advanced",
+      "topic": "fab",
+      "text": "By some estimates, TSMC produces over 90% of the world's most advanced chips.",
+      "source_name": "NPR (John Ruwitch), via OPB",
+      "source_url": "https://www.opb.org/article/2025/12/01/as-political-winds-shift-top-chipmaker-tsmc-looks-beyond-taiwan/",
+      "published": "2025-12-01",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "hbm_korea_share",
+      "topic": "hbm",
+      "text": "SK hynix (50%) and Samsung (33%) held most HBM market share in Q2 2026; US-based Micron held 18%.",
+      "source_name": "Counterpoint Research – Global DRAM and HBM Market Share",
+      "source_url": "https://counterpointresearch.com/insights/global-dram-and-hbm-market-share",
+      "published": null,
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "packaging_cowos",
+      "topic": "packaging",
+      "text": "TSMC's chairman said in 2023 the AI chip shortage stemmed from CoWoS packaging capacity, meeting only about 80% of demand.",
+      "source_name": "The Register (relaying Nikkei Asia interview with Mark Liu)",
+      "source_url": "https://www.theregister.com/2023/09/08/tsmc_ai_chip_crunch/",
+      "published": "2023-09-08",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "gallium_china_share",
+      "topic": "gallium_germanium",
+      "text": "USGS: China accounted for 99% of world primary low-purity gallium production.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Gallium",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gallium.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "germanium_china_lead",
+      "topic": "gallium_germanium",
+      "text": "USGS: China remained the leading global producer and exporter of germanium metal in 2025; global data are limited.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Germanium",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-germanium.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "tantalum_producers",
+      "topic": "tantalum",
+      "text": "USGS estimates Congo (Kinshasa) mined about 1,300 t of tantalum in 2025, roughly half the world total; Rwanda ranked second (400 t).",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Tantalum",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-tantalum.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "tantalum_3tg_us",
+      "topic": "tantalum",
+      "text": "Dodd-Frank Section 1502 conflict minerals rules cover tantalum, tin, gold and tungsten (3TG).",
+      "source_name": "US SEC – Conflict Minerals fact sheet",
+      "source_url": "https://www.sec.gov/opa/Article/2012-2012-163htm---related-materials.html",
+      "published": "2012-08-22",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "tantalum_3tg_eu",
+      "topic": "tantalum",
+      "text": "EU Conflict Minerals Regulation (EU) 2017/821 covers tin, tantalum, tungsten and gold; importer duties apply from 1 January 2021.",
+      "source_name": "European Commission – DG Trade",
+      "source_url": "https://policy.trade.ec.europa.eu/development-and-sustainability/conflict-minerals-regulation/regulation-explained_en",
+      "published": null,
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "magnets_china_share",
+      "topic": "magnets",
+      "text": "China accounts for about 94% of global sintered NdFeB permanent magnet production.",
+      "source_name": "Columbia University Center on Global Energy Policy",
+      "source_url": "https://www.energypolicy.columbia.edu/chinese-customs-data-reveal-deeper-us-dependence-on-chinese-rare-earths/",
+      "published": "2026-06-11",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "magnets_kachin",
+      "topic": "magnets",
+      "text": "Global Witness: Myanmar is the largest source of heavy rare earths; Kachin mining sites are controlled by military-aligned militias.",
+      "source_name": "Global Witness – Fuelling the future, poisoning the present",
+      "source_url": "https://www.globalwitness.org/en/campaigns/natural-resource-governance/fuelling-the-future-poisoning-the-present-myanmars-rare-earth-boom/",
+      "published": "2024-05-23",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "datacenter_lbnl",
+      "topic": "datacenter",
+      "text": "US data centers used about 4.4% of US electricity in 2023; LBNL projects 6.7–12% by 2028.",
+      "source_name": "US Department of Energy (LBNL 2024 Data Center Energy Usage Report)",
+      "source_url": "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers",
+      "published": "2024-12-20",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "solar_xinjiang_poly",
+      "topic": "solar",
+      "text": "IEA: China's Xinjiang province accounts for 40% of global polysilicon manufacturing.",
+      "source_name": "Utility Dive (quoting IEA Special Report on Solar PV Global Supply Chains)",
+      "source_url": "https://www.utilitydive.com/news/china-made-solar-pv-created-imbalanced-global-supply-iea/627021/",
+      "published": "2022-07-12",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "solar_uflpa_presumption",
+      "topic": "solar",
+      "text": "Under UFLPA, CBP presumes goods made wholly or partly in Xinjiang are made with forced labour and barred, unless rebutted.",
+      "source_name": "US Customs and Border Protection – UFLPA",
+      "source_url": "https://www.cbp.gov/trade/forced-labor/UFLPA",
+      "published": null,
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "hurricane_helene_halt",
+      "topic": "hurricane",
+      "text": "Sibelco and The Quartz Corp halted Spruce Pine operations from 26 Sept 2024 after Hurricane Helene; Sibelco restarted about two weeks later.",
+      "source_name": "AP via ABC News",
+      "source_url": "https://abcnews.go.com/US/wireStory/north-carolina-town-produces-quartz-needed-tech-products-114411372",
+      "published": "2024-10-02",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "gallium_ban_timeline",
+      "topic": "gallium_ban",
+      "text": "China imposed gallium export licensing in Aug 2023, banned exports to the US in Dec 2024, and lifted that ban for one year in Nov 2025.",
+      "source_name": "USGS Mineral Commodity Summaries 2026 – Gallium / Germanium",
+      "source_url": "https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-gallium.pdf",
+      "published": "2026-02-01",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "gallium_ban_suspension",
+      "topic": "gallium_ban",
+      "text": "China suspended its gallium, germanium and antimony export ban to the US from 9 Nov 2025 until 27 Nov 2026; licensing still applies.",
+      "source_name": "CNBC (MOFCOM statement)",
+      "source_url": "https://www.cnbc.com/2025/11/09/china-suspends-ban-on-exports-of-gallium-germanium-antimony-to-us.html",
+      "published": "2025-11-09",
+      "recheck_by": "2026-11-30",
+      "verified": true
+    },
+    {
+      "id": "taiwan_justice_mission",
+      "topic": "taiwan_blockade",
+      "text": "China's 'Justice Mission 2025' drills (29–30 Dec 2025) simulated a blockade of Taiwan and its main ports, Keelung and Kaohsiung.",
+      "source_name": "Al Jazeera",
+      "source_url": "https://aljazeera.com/news/2025/12/30/how-are-chinas-new-war-games-around-taiwan-different-from-earlier-drills",
+      "published": "2025-12-30",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "uflpa_in_force",
+      "topic": "uflpa",
+      "text": "UFLPA's rebuttable presumption took effect 21 June 2022, barring Xinjiang-linked goods unless importers rebut it.",
+      "source_name": "US Customs and Border Protection – UFLPA",
+      "source_url": "https://www.cbp.gov/trade/forced-labor/UFLPA",
+      "published": null,
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "uflpa_solar_detentions",
+      "topic": "uflpa",
+      "text": "CBP told Reuters it had detained 1,053 solar equipment shipments under UFLPA from 21 June to 25 Oct 2022.",
+      "source_name": "pv magazine USA (citing Reuters)",
+      "source_url": "https://pv-magazine-usa.com/2022/11/11/due-to-forced-labor-concerns-u-s-ports-have-blocked-over-1000-shipments-of-solar-components/",
+      "published": "2022-11-11",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "rubaya_m23_control",
+      "topic": "rubaya",
+      "text": "UN experts reported M23 seized Rubaya in April 2024 and collected at least $800,000 a month from coltan levies.",
+      "source_name": "Reuters (Sonia Rolley, Alessandra Prentice), via Kitco",
+      "source_url": "https://www.kitco.com/news/off-the-wire/2025-01-08/congo-rebels-muddy-minerals-market-illegal-rwanda-exports-says-un",
+      "published": "2025-01-08",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "rubaya_collapse_jan2026",
+      "topic": "rubaya",
+      "text": "A landslide at Rubaya coltan mines (28 Jan 2026) killed over 200, per rebel-appointed officials; Rubaya produces ~15% of world coltan.",
+      "source_name": "Al Jazeera",
+      "source_url": "https://www.aljazeera.com/news/2026/1/31/more-than-200-killed-in-mine-collapse-in-eastern-dr-congo-report",
+      "published": "2026-01-31",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "rubaya_collapse_mar2026",
+      "topic": "rubaya",
+      "text": "A second Rubaya landslide on 3 Mar 2026 killed over 200, per DRC's mines minister; M23 disputed the toll.",
+      "source_name": "Mongabay",
+      "source_url": "https://news.mongabay.com/short-article/2026/03/200-dead-more-missing-in-another-drc-mine-collapse/",
+      "published": "2026-03-01",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "dutch_duv_2023",
+      "topic": "dutch_euv",
+      "text": "From 1 Sep 2023, Dutch rules required export licences for ASML's TWINSCAN NXT:2000i and later immersion DUV systems.",
+      "source_name": "ASML statement",
+      "source_url": "https://www.asml.com/en/news/press-releases/2023/statement-regarding-export-control-regulations-dutch-government",
+      "published": "2023-06-30",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "dutch_duv_2024",
+      "topic": "dutch_euv",
+      "text": "From 7 Sep 2024, the Netherlands also required Dutch licences for ASML NXT:1970i and 1980i DUV systems; EUV sales already needed licences.",
+      "source_name": "The Register",
+      "source_url": "https://www.theregister.com/2024/09/06/dutch_asml_export_controls/",
+      "published": "2024-09-06",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "neon_shelled_halt",
+      "topic": "neon_shelled",
+      "text": "After Russia's 2022 invasion, Ingas (Mariupol) and Cryoin (Odesa) halted neon production; Cryoin stopped on 24 Feb 2022.",
+      "source_name": "Reuters (Alexandra Alper), republished by Euronews",
+      "source_url": "https://www.euronews.com/next/2022/03/11/ukraine-crisis-neon",
+      "published": "2022-03-11",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "japan_quake_renesas",
+      "topic": "japan_quake",
+      "text": "The 16 Mar 2022 Fukushima-offshore earthquake halted production at Renesas' Naka, Takasaki and Yonezawa chip plants.",
+      "source_name": "Renesas Electronics press release",
+      "source_url": "https://renesas.com/en/about/newsroom/impact-march-16-earthquake-coast-fukushima-prefecture-renesas-operation-0",
+      "published": "2022-03-17",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "drc_3t_site_ban",
+      "topic": "drc_quota",
+      "text": "DRC banned trade in minerals from 38 artisanal sites in North and South Kivu, including tantalum ore, extending it six months in Nov 2025.",
+      "source_name": "Africanews (Reuters-based)",
+      "source_url": "https://www.africanews.com/amp/2025/11/18/dr-congo-extends-ban-on-mineral-trade-in-war-hit-east-by-six-months",
+      "published": "2025-11-18",
+      "recheck_by": "2027-05-23",
+      "verified": true
+    },
+    {
+      "id": "ransomware_mks",
+      "topic": "ransomware",
+      "text": "Chip-equipment supplier MKS Instruments disclosed a ransomware event on 3 Feb 2023 and suspended operations at some facilities.",
+      "source_name": "MKS Instruments Form 8-K (SEC EDGAR)",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1049502/000119312523024904/d420671d8k.htm",
+      "published": "2023-02-06",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "simchi_levi_hbr",
+      "topic": "simchi_levi",
+      "text": "Simchi-Levi, Schmidt & Wei (HBR, Jan–Feb 2014) measure risk by each node's time to recover (TTR), not by disruption probability.",
+      "source_name": "Harvard Business Review; MIT News",
+      "source_url": "https://hbr.org/2014/01/from-superstorms-to-factory-fires-managing-unpredictable-supply-chain-disruptions",
+      "published": "2014-01-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    },
+    {
+      "id": "simchi_levi_tts",
+      "topic": "simchi_levi",
+      "text": "Simchi-Levi et al. (Interfaces, 2015) define time-to-survive as the longest a firm can last without losing demand after a disruption.",
+      "source_name": "Interfaces 45(5):375–390 (MIT DSpace author manuscript)",
+      "source_url": "https://dspace.mit.edu/handle/1721.1/101782",
+      "published": "2015-10-01",
+      "recheck_by": "2027-11-23",
+      "verified": true
+    }
+  ]
+}

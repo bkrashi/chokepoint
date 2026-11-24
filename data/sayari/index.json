@@ -1,0 +1,1461 @@
+{
+ "source": "Sayari",
+ "display": "summary fields only",
+ "nodes": {
+  "crucibles": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "partial",
+   "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+   "companies": [
+    {
+     "name": "JAPAN SUPER QUARTZ CORPORATION",
+     "country": "JP",
+     "sayari_entity_id": "0YWBgOdes8Fkey7w9sU6rA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    },
+    {
+     "name": "HERAEUS QUARZGLAS GMBH & CO KG",
+     "country": "DE",
+     "sayari_entity_id": "4dB5gPDW7OsGRG5jqioOvg",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [
+      {
+       "name": "YANGTZE OPTICAL FIBRE AND CABLE JOINT STOCK LIMITED COMPANY",
+       "country": "CN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "FUTONG GROUP (JIASHAN) COMMUNICATION TECHNOLOGY CO.",
+       "country": "CN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "ANGSTREM, JOINT STOCK COMPANY",
+       "country": null,
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "HERAEUS HOLDING GmbH (Wilhelm und Else Heraeus-Stiftung / Heraeus family)"
+    },
+    {
+     "name": "SHIN-ETSU QUARTZ PRODUCTS CO.LTD",
+     "country": "JP",
+     "sayari_entity_id": "kMvzhz-W2LqmlJSumDOT9A",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [
+      {
+       "name": "S.E.H. AMERICA, INC.",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "S E H SHAH ALAM SDN BHD",
+       "country": "MY",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "Heraeus Beteiligungsverwaltungsgesellschaft mbH"
+    }
+   ],
+   "fallback": null
+  },
+  "datacenter": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "EQUINIX INC",
+     "country": "US",
+     "sayari_entity_id": "GHMJdqi1oBtullH505JdPA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Adverse media"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "Owned by a state-owned enterprise"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Hanley Energy Ltd",
+       "country": "IE",
+       "direction": "buys_from"
+      },
+      {
+       "name": "JH Hardware Sdn Bhd",
+       "country": "MY",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Sanmina-SCI Systems de Mexico SA de CV",
+       "country": "MX",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "DIGITAL REALTY TRUST, INC.",
+     "country": "US",
+     "sayari_entity_id": "mvcBzuiPTOPLX1zr3pdKXQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Global HTM Solutions LLC",
+       "country": "US",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Sanmina-SCI Systems de Mexico SA de CV",
+       "country": "MX",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Flextronics Technology Penang Sdn Bhd",
+       "country": "MY",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "Microsoft Corp",
+     "country": "US",
+     "sayari_entity_id": "D0hm_Sz6r4x7Qa3R0UUb3A",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "euv": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "ASML NETHERLANDS BV",
+     "country": "NL",
+     "sayari_entity_id": "1oM_NCDG5ZoGJzQj6HwWOw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "JX ADVANCED METALS CORPORATION",
+       "country": "JP",
+       "direction": "sells_to"
+      },
+      {
+       "name": "PRODIGY TECHNOVATIONS PRIVATE LIMITED",
+       "country": "IN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "S&M MOVING SYSTEMS",
+       "country": "US",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "ASML HOLDING NV"
+    },
+    {
+     "name": "ASML HOLDING NV",
+     "country": "NL",
+     "sayari_entity_id": "dzZRvq2wWyYwdVttU1H4Sg",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Adverse media"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Politically exposed persons (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    },
+    {
+     "name": "Carl Zeiss SMT GmbH",
+     "country": "DE",
+     "sayari_entity_id": "UrJ2fpv3W8KlnylhrUXMcw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "CARL ZEISS SBE LLC",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "M CUBED TECHNOLOGIES INC.",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "CONG TY TNHH RORZE ROBOTECH",
+       "country": "VN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "CARL-ZEISS-STIFTUNG"
+    }
+   ],
+   "fallback": null
+  },
+  "fab": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "Taiwan Semiconductor Manufacturing Co., Ltd.",
+     "country": "TW",
+     "sayari_entity_id": "iWMVvPCrx1eaCp3h6lliHQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Adverse media"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Politically exposed persons (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "NI Malaysia Sdn Bhd",
+       "country": "MY",
+       "direction": "buys_from"
+      },
+      {
+       "name": "FilmTec Corporation",
+       "country": "US",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Jabil Bukit Minyak (Plant 7)",
+       "country": "MY",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "TSMC ARIZONA CORPORATION",
+     "country": "US",
+     "sayari_entity_id": "MFdNfW5bDWsawLrmQ9bNwg",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "鴻久科技股份有限公司",
+       "country": "TW",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Wave Power Technology Inc.",
+       "country": "TW",
+       "direction": "buys_from"
+      },
+      {
+       "name": "佑勝科技有限公司",
+       "country": "TW",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": "Taiwan Semiconductor Manufacturing Co., Ltd."
+    }
+   ],
+   "fallback": null
+  },
+  "gallium_germanium": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "partial",
+   "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+   "companies": [
+    {
+     "name": "Aluminum Corporation of China Ltd. (Chalco, 中国铝业股份有限公司)",
+     "country": "CN",
+     "sayari_entity_id": "PFpozu8P4bYow8fJYXK4Zw",
+     "match": "confirmed",
+     "state_owned": "y",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "soe",
+       "label": "Owned by a state-owned enterprise"
+      },
+      {
+       "tier": "flagged",
+       "type": "soe",
+       "label": "State-owned"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Xinjiang forced-labour risk (ownership)"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": "Aluminum Corporation of China (Chinalco group)"
+    },
+    {
+     "name": "云南临沧鑫圆锗业股份有限公司 (Yunnan Lincang Xinyuan Germanium Industry)",
+     "country": "CN",
+     "sayari_entity_id": "z4977ENn1z31ou25_oXrAA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "export_control",
+       "label": "Military end-use keywords (China)"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned trade counterparties"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "OOO GERMANIY I PRILOZHENIYA",
+       "country": "RU",
+       "direction": "sells_to"
+      },
+      {
+       "name": "OOO KRASPOTOK",
+       "country": "RU",
+       "direction": "sells_to"
+      },
+      {
+       "name": "AO GERMANIY",
+       "country": "RU",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "VITAL MATERIALS CO., LIMITED",
+     "country": "HK",
+     "sayari_entity_id": "rZVRaqT-jsyZ2kRV3C5N0Q",
+     "match": "possible match",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Công Ty TNHH Sản Xuất First Solar Việt Nam",
+       "country": "VN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "hbm": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "SK Hynix Inc",
+     "country": "KR",
+     "sayari_entity_id": "W4UWfQ7c-26FRFjfLafzpA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Adverse media"
+      },
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Politically exposed persons (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Intel Corporation",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "LG Electronics Vietnam Hai Phong Co., Ltd.",
+       "country": "VN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Intel Products Vietnam Co., Ltd.",
+       "country": "VN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "SAMSUNG ELECTRONICS CO., LTD",
+     "country": "KR",
+     "sayari_entity_id": "GG8YwuxZxcEm8MEU3csapw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Adverse media"
+      },
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Law-enforcement action"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Export-controlled parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Owns a sanctioned entity"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned trade counterparties"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "magnets": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "JL Mag Rare-Earth Co., Ltd. (江西金力永磁科技股份有限公司)",
+     "country": "CN",
+     "sayari_entity_id": "JYKre_L_k3pm2Kn-EdwYWA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "Owned by a state-owned enterprise"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Dana TM4 India Private Limited",
+       "country": "IN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Nidec India Private Limited",
+       "country": "IN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Cty TNHH Nidec Sankyo Viet Nam",
+       "country": "VN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "China Northern Rare Earth (Group) High-Tech Co., Ltd. (中国北方稀土(集团)高科技股份有限公司)",
+     "country": "CN",
+     "sayari_entity_id": "G3v20QkaoeFZS_rH6Dtwhg",
+     "match": "confirmed",
+     "state_owned": "y",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "soe",
+       "label": "Owned by a state-owned enterprise"
+      },
+      {
+       "tier": "flagged",
+       "type": "soe",
+       "label": "State-owned"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Xinjiang forced-labour risk (ownership)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "W.R. Grace & Co.-Conn",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Pacific Industrial Development Corp",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Ekin Maden Ticaret ve Sanayi A.S.",
+       "country": "TR",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "Lynas Rare Earths Ltd (Sayari label: Lynas CORP LTD)",
+     "country": "AU",
+     "sayari_entity_id": "_VakZUDye4u06kwWbJzxtw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Politically exposed persons (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Sojitz Corporation",
+       "country": "JP",
+       "direction": "sells_to"
+      },
+      {
+       "name": "Mt Weld Mining Pty Ltd (Lynas subsidiary)",
+       "country": "AU",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "neon": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "partial",
+   "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+   "companies": [
+    {
+     "name": "TOV INGAZ (ТОВ \"ІНГАЗ\")",
+     "country": "UA",
+     "sayari_entity_id": "rj7b4uL4Uwf3cNe-vtvr9g",
+     "match": "possible match",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Quzhou Hangyang Special Gas Co., Ltd. (衢州杭氧特种气体有限公司)",
+       "country": "CN",
+       "direction": "buys_from"
+      },
+      {
+       "name": "ORLEN S.A. Oddzial PGNiG w Odolanowie",
+       "country": "PL",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Vitkovice Cylinders a.s.",
+       "country": "CZ",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": "An individual (name withheld on public page)"
+    },
+    {
+     "name": "TOV KRIOIN ENGINEERING (KRIOIN ENGINEERING LLC)",
+     "country": "UA",
+     "sayari_entity_id": "iJgFFr56LQFcQc3Z-hNjuw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Export-controlled parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Siargo Chengdu Ltd",
+       "country": "CN",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Thermo Fisher Scientific GmbH",
+       "country": "DE",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Linyi Lizhen Chemical Technology Co., Ltd.",
+       "country": "CN",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": "An individual (name withheld on public page)"
+    }
+   ],
+   "fallback": null
+  },
+  "packaging": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "ADVANCED SEMICONDUCTOR ENGINEERING (ASE Inc.)",
+     "country": "TW",
+     "sayari_entity_id": "HTUWQXJ8vmwreOHTQ14Qlw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Export-controlled parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "ANALOG DEVICES GEN TRIAS INC",
+       "country": "PH",
+       "direction": "sells_to"
+      },
+      {
+       "name": "ADVANCED MICRO DEVICES INC",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "CARSEM (M) SDN BHD",
+       "country": "MY",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "SILICONWARE PRECISION INDUSTRIES CO. LTD (SPIL)",
+     "country": "TW",
+     "sayari_entity_id": "uBcAyPyuW5ja82mM2QjuoQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Related company has a regulatory action"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "QUALCOMM INDIA PRIVATE LIMITED",
+       "country": "IN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "TERADYNE PHILIPPINES LTD",
+       "country": "PH",
+       "direction": "sells_to"
+      },
+      {
+       "name": "JABIL CIRCUIT INDIA PRIVATE LIMITED",
+       "country": "IN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "Advanced Semiconductor Engineering, Inc."
+    }
+   ],
+   "fallback": null
+  },
+  "photoresist": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "JSR Corporation",
+     "country": "JP",
+     "sayari_entity_id": "NjUa8KIiyHIQ7j3aA78I8w",
+     "match": "confirmed",
+     "state_owned": "unknown",
+     "flags": [],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    },
+    {
+     "name": "TOKYO OHKA KOGYO CO.,LTD.",
+     "country": "JP",
+     "sayari_entity_id": "QUdZkxssKCNXoJ06l4r6IQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Nouryon Pulp and Performance Chemicals AB",
+       "country": "SE",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Akzo Nobel Pulp and Performance Chemicals AB",
+       "country": "SE",
+       "direction": "buys_from"
+      },
+      {
+       "name": "OG Corporation India Private Limited",
+       "country": "IN",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "SHIN-ETSU CHEMICAL CO.,LTD",
+     "country": "JP",
+     "sayari_entity_id": "P-ddqvqiP9sm0ISKcc847A",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trade with a BIS Entity List company"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Simcoa Operations Pty Ltd",
+       "country": "AU",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Fitson Sdn Bhd",
+       "country": "MY",
+       "direction": "buys_from"
+      },
+      {
+       "name": "Epivalence Ltd",
+       "country": "GB",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "quartz": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "SIBELCO NORTH AMERICA, INC",
+     "country": "US",
+     "sayari_entity_id": "4jtXqnqee6dbwu1hl9tlEg",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour research (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "LONGI GREEN ENERGY TECHNOLOGY CO",
+       "country": "CN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "JINKO SOLAR COMPANY LIMITED",
+       "country": "CN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "GUANGDONG JINWAN GAOJING SOLAR ENERGY TECHNOLOGY CO.",
+       "country": "CN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "SCR-SIBELCO NV"
+    },
+    {
+     "name": "THE QUARTZ CORP AS",
+     "country": "NO",
+     "sayari_entity_id": "lP37UNb3gg24Md4O9sqsUw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [
+      {
+       "name": "MOMENTIVE TECHNOLOGIES YAMAGATA KK",
+       "country": "JP",
+       "direction": "sells_to"
+      },
+      {
+       "name": "CONG TY TNHH ATSC SOLARTECH (VIET NAM)",
+       "country": "VN",
+       "direction": "sells_to"
+      },
+      {
+       "name": "APL LOGISTICS SHANGHAI LTD",
+       "country": "CN",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "THE QUARTZ CORP SAS"
+    },
+    {
+     "name": "THE QUARTZ CORP USA",
+     "country": "US",
+     "sayari_entity_id": "NuZdYbLE-Z6e-qZvbjndxQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "solar": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "partial",
+   "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+   "companies": [
+    {
+     "name": "HOSHINE SILICON INDUSTRY CO LTD (合盛硅业股份有限公司)",
+     "country": "CN",
+     "sayari_entity_id": "1XuabHffKPzSurnyE-YlvA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Regulatory action"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "US CBP Withhold Release Order"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "US UFLPA Entity List"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Owns UFLPA Entity List companies"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Owns a BIS Entity List company"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "Zavod DK Orisil LLC",
+       "country": "UA",
+       "direction": "sells_to"
+      },
+      {
+       "name": "PT Graha Pertiwi Mandiri",
+       "country": "ID",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "An individual (name withheld on public page)"
+    },
+    {
+     "name": "新疆大全新能源股份有限公司 (Xinjiang Daqo New Energy Co., Ltd.)",
+     "country": "CN",
+     "sayari_entity_id": "3bccjaQWa6JzLqLg67FwUQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Law-enforcement action"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "Named in Sheffield Hallam forced-labour research"
+      },
+      {
+       "tier": "flagged",
+       "type": "export_control",
+       "label": "US BIS Entity List"
+      },
+      {
+       "tier": "flagged",
+       "type": "export_control",
+       "label": "US Military End-User list category"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "US UFLPA Entity List"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned trade counterparties"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "OOO Enkor Grupp (possible match; Sayari flags it as sanctioned)",
+       "country": "RU",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "新疆东方希望有色金属有限公司 (Xinjiang East Hope Nonferrous Metals Co., Ltd.)",
+     "country": "CN",
+     "sayari_entity_id": "gUa2RE7CCCwZrhMS_DmEqQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "other",
+       "label": "Law-enforcement action"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "Named in Sheffield Hallam forced-labour research"
+      },
+      {
+       "tier": "flagged",
+       "type": "export_control",
+       "label": "US BIS Entity List"
+      },
+      {
+       "tier": "flagged",
+       "type": "forced_labour",
+       "label": "US UFLPA Entity List"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "tantalum": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "partial",
+   "status_note": "Partial data: Sayari has thin records or little trade data for some of these companies.",
+   "companies": [
+    {
+     "name": "SOCIETE MINIERE DE BISUNZU (SMB)",
+     "country": "CD",
+     "sayari_entity_id": "GPzwYDc1ik5IeqgQ-IT8Bw",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [],
+     "top_counterparties": [],
+     "ultimate_owner": "An individual (name withheld on public page)"
+    },
+    {
+     "name": "宁夏东方钽业股份有限公司 (Ningxia Orient Tantalum Industry)",
+     "country": "CN",
+     "sayari_entity_id": "ZpTn4A-iShM17oe5UZ0pbA",
+     "match": "confirmed",
+     "state_owned": "y",
+     "flags": [
+      {
+       "tier": "flagged",
+       "type": "soe",
+       "label": "Owned by a state-owned enterprise"
+      },
+      {
+       "tier": "linked",
+       "type": "soe",
+       "label": "State-owned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "US Military End-User list category"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "SAMSUNG ELECTRO-MECHANICS CO., LTD",
+       "country": "KR",
+       "direction": "sells_to"
+      },
+      {
+       "name": "KASEN INDONESIA",
+       "country": "ID",
+       "direction": "sells_to"
+      },
+      {
+       "name": "SAMSUNG ELECTRO-MECHANICS PHILIPPINES CORPORATION",
+       "country": "PH",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    },
+    {
+     "name": "KEMET ELECTRONICS CORPORATION",
+     "country": "US",
+     "sayari_entity_id": "9XUA0qytaym17F2PfP6L-Q",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Export-controlled parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "sanctions",
+       "label": "Sanctioned parties (network)"
+      },
+      {
+       "tier": "linked",
+       "type": "other",
+       "label": "Trades conflict-mineral goods"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "KEMET DE MEXICO SA DE CV",
+       "country": "MX",
+       "direction": "buys_from"
+      },
+      {
+       "name": "TOKIN ELECTRONICS (THAILAND) CO.,LT",
+       "country": "TH",
+       "direction": "buys_from"
+      }
+     ],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  },
+  "wafers": {
+   "source": "Sayari",
+   "retrieved_at": "2026-11-23",
+   "sayari_status": "ok",
+   "status_note": null,
+   "companies": [
+    {
+     "name": "SHIN-ETSU HANDOTAI CO., LTD.",
+     "country": "JP",
+     "sayari_entity_id": "J0ARzNfT6-kAaDJ1Kzo9MA",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "INFINEON TECHNOLOGIES KULIM MALAYSIA SDN BHD",
+       "country": "MY",
+       "direction": "sells_to"
+      },
+      {
+       "name": "ON SEMICONDUCTOR MALAYSIA SDN BHD",
+       "country": "MY",
+       "direction": "sells_to"
+      },
+      {
+       "name": "S.E.H. AMERICA, INC.",
+       "country": "US",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": "SHIN-ETSU CHEMICAL CO., LTD"
+    },
+    {
+     "name": "SUMCO CORP",
+     "country": "JP",
+     "sayari_entity_id": "TYiesjKIDgKFev8sntdtCQ",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      },
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Product on US DOL forced/child-labour goods list"
+      },
+      {
+       "tier": "linked",
+       "type": "export_control",
+       "label": "Trades BIS high-priority item categories"
+      }
+     ],
+     "top_counterparties": [],
+     "ultimate_owner": null
+    },
+    {
+     "name": "GlobalWafers Co. Ltd.",
+     "country": "TW",
+     "sayari_entity_id": "Njlo7rB_caaX24Z6tvtQ8Q",
+     "match": "confirmed",
+     "state_owned": "n",
+     "flags": [
+      {
+       "tier": "linked",
+       "type": "forced_labour",
+       "label": "Forced-labour risk in sub-tier suppliers"
+      }
+     ],
+     "top_counterparties": [
+      {
+       "name": "WAFTECH SDN BHD",
+       "country": "MY",
+       "direction": "sells_to"
+      },
+      {
+       "name": "MEMC LLC",
+       "country": "US",
+       "direction": "sells_to"
+      },
+      {
+       "name": "INFINEON TECHNOLOGIES",
+       "country": "DE",
+       "direction": "sells_to"
+      }
+     ],
+     "ultimate_owner": null
+    }
+   ],
+   "fallback": null
+  }
+ }
+}
